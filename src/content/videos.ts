@@ -59,13 +59,20 @@ const US_ENTRIES: {
   category: VideoCategoryId;
   title: string;
   description: string;
+  thumbnailUrl?: string;
+  videoUrl?: string;
+  duration?: string;
+  locale?: string;
 }[] = [
   {
-    id: "overview",
-    category: "getting-started",
+    id: "getting-started",
     title: "Getting Started with PCI01",
-    description:
-      "Meet the device, identify its parts and buttons, then install two AAA batteries and power it on.",
+    description: "Meet the device, identify its buttons, and install two AAA batteries and power it on.",
+    category: "getting-started",
+    thumbnailUrl: "/video1.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    duration: "2:30",
+    locale: "en",
   },
   {
     id: "memory",
