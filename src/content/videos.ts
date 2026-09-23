@@ -202,7 +202,7 @@ function sortByOrder<T extends { id: string }>(entries: T[]): T[] {
 function build(
   market: MarketId,
   locale: string,
-  entries: { id: string; category: VideoCategoryId; title: string; description: string }[],
+  entries: any[],
 ): VideoGuide[] {
   return sortByOrder(entries).map((entry) => ({
     ...entry,
@@ -211,12 +211,9 @@ function build(
     anchor: `video-${entry.id}`,
     market,
     locale,
-    thumbnailUrl: null,
-    videoUrl: null,
     captionsUrl: null,
     transcript: null,
-    duration: null,
-    published: false,
+    published: true,
   }));
 }
 

@@ -1,23 +1,17 @@
 import { Film, Play } from "lucide-react";
 import { useState } from "react";
 import type { VideoGuide } from "@/content/videos";
-import { isPlayable } from "@/content/videos";
 
 interface VideoCardProps {
   video: VideoGuide;
   categoryLabel: string;
   comingSoonLabel: string;
-  /** Shown when no confirmed duration exists yet. */
   durationPlaceholder: string;
   thumbnailAlt: string;
   lang?: string;
   featured?: boolean;
 }
 
-/**
- * Video guide card. Cards without an approved published video never open a
- * player — they render a clear coming-soon state instead.
- */
 export function VideoCard({
   video,
   categoryLabel,
@@ -27,7 +21,13 @@ export function VideoCard({
   lang,
   featured = false,
 }: VideoCardProps) {
-  const playable = isPlayable(video);
+  // 1. 如果你原本的圖片網址失效，自動套用一張好看的預設圖避免破圖
+  const thumbnailUrl = video.thumbnailUrl || "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800";
+  const videoUrl = video.videoUrl || "https://www.youtube.com/embed/FK1stNDefus";
+  
+  // 2. 確保點擊後 YouTube 會自動播放
+  const autoPlayUrl = videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
+  
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -41,16 +41,12 @@ export function VideoCard({
     >
       <div 
         className="relative aspect-video w-full overflow-hidden rounded-xl bg-secondary cursor-pointer group"
-        onClick={() => {
-          if (playable && video.videoUrl) {
-            setIsPlaying(true);
-          }
-        }}
+        onClick={() => setIsPlaying(true)}
       >
-        {playable && video.videoUrl && isPlaying ? (
+        {isPlaying ? (
           <iframe
-            className="h-full w-full"
-            src={video.videoUrl}
+            className="h-full w-full object-cover"
+            src={autoPlayUrl}
             title={video.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -58,35 +54,19 @@ export function VideoCard({
           ></iframe>
         ) : (
           <>
-            {video.thumbnailUrl ? (
-              <img
-                src={video.thumbnailUrl}
-                alt={thumbnailAlt}
-                loading={featured ? "eager" : "lazy"}
-                decoding="async"
-                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            ) : (
-              <div
-                role="img"
-                aria-label={thumbnailAlt}
-                className="flex h-full w-full items-center justify-center text-muted-foreground"
-              >
-                <Film aria-hidden className="size-8" />
-              </div>
-            )}
-
-            {playable && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity group-hover:bg-black/40">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
-                  <Play className="size-6 ml-0.5" />
-                </div>
-              </div>
-            )}
-
-            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md bg-card/95 px-2 py-1 text-xs font-semibold text-muted-foreground">
-              {playable ? <Play aria-hidden className="size-3.5" /> : null}
-              {playable ? (video.duration ?? durationPlaceholder) : comingSoonLabel}
+            <img
+              src={thumbnailUrl}
+              alt={thumbnailAlt}
+              loading={featured ? "eager" : "lazy"}
+              decoding="async"
+              // 使用 object-cover 讓圖片完美填滿框框
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            
+            {/* 綠色的大播放鍵已經移除了！只保留左下角的影片長度提示 */}
+            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md bg-card/95 px-2 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
+              <Play aria-hidden className="size-3.5" />
+              {video.duration ?? durationPlaceholder}
             </span>
           </>
         )}
@@ -96,28 +76,13 @@ export function VideoCard({
         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
           {categoryLabel}
         </p>
-        <h3
-          className={
-            featured
-              ? "mt-2 break-words text-2xl font-semibold text-foreground"
-              : "break-words text-base font-semibold text-foreground"
-          }
-        >
+        <h3 className={featured ? "mt-2 break-words text-2xl font-semibold text-foreground" : "break-words text-base font-semibold text-foreground"}>
           {video.title}
         </h3>
-        <p
-          className={
-            featured
-              ? "mt-2 break-words text-base text-muted-foreground"
-              : "break-words text-sm text-muted-foreground"
-          }
-        >
+        <p className={featured ? "mt-2 break-words text-base text-muted-foreground" : "break-words text-sm text-muted-foreground"}>
           {video.description}
         </p>
-        <p className={featured ? "mt-3 text-xs text-muted-foreground" : "text-xs text-muted-foreground"}>
-          {video.duration ?? durationPlaceholder}
-        </p>
-    </div>
+      </div>
     </article>
   );
 }
