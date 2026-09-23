@@ -1,0 +1,534 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * PCI01 Support (US) design system.
+ * Calm, premium pet-care service palette.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans:
+    Inter, "Noto Sans JP", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", Helvetica, Arial, sans-serif;
+  --shadow-soft: 0 1px 2px oklch(0.27 0.02 165 / 6%), 0 8px 24px -12px oklch(0.27 0.02 165 / 18%);
+  --shadow-lift: 0 2px 4px oklch(0.27 0.02 165 / 6%), 0 18px 40px -18px oklch(0.27 0.02 165 / 26%);
+}
+
+:root {
+  --radius: 0.875rem;
+  /* #F8F7F2 */
+  --background: oklch(0.972 0.008 95);
+  /* #20332D */
+  --foreground: oklch(0.29 0.023 165);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.29 0.023 165);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.29 0.023 165);
+  /* #21684E */
+  --primary: oklch(0.452 0.083 163);
+  --primary-foreground: oklch(0.988 0.006 95);
+  --secondary: oklch(0.945 0.014 150);
+  --secondary-foreground: oklch(0.34 0.05 163);
+  --muted: oklch(0.955 0.008 120);
+  /* #61736B */
+  --muted-foreground: oklch(0.525 0.018 163);
+  --accent: oklch(0.93 0.02 160);
+  --accent-foreground: oklch(0.34 0.05 163);
+  --destructive: oklch(0.52 0.17 27);
+  --destructive-foreground: oklch(0.99 0.005 95);
+  /* #C86E3C */
+  --warning: oklch(0.626 0.124 51);
+  --warning-foreground: oklch(0.99 0.005 95);
+  --warning-soft: oklch(0.955 0.03 66);
+  --border: oklch(0.9 0.012 140);
+  --input: oklch(0.88 0.012 140);
+  --ring: oklch(0.452 0.083 163);
+  --chart-1: oklch(0.452 0.083 163);
+  --chart-2: oklch(0.626 0.124 51);
+  --chart-3: oklch(0.525 0.018 163);
+  --chart-4: oklch(0.7 0.06 163);
+  --chart-5: oklch(0.85 0.03 95);
+  --sidebar: oklch(0.988 0.006 95);
+  --sidebar-foreground: oklch(0.29 0.023 165);
+  --sidebar-primary: oklch(0.452 0.083 163);
+  --sidebar-primary-foreground: oklch(0.988 0.006 95);
+  --sidebar-accent: oklch(0.945 0.014 150);
+  --sidebar-accent-foreground: oklch(0.34 0.05 163);
+  --sidebar-border: oklch(0.9 0.012 140);
+  --sidebar-ring: oklch(0.452 0.083 163);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Minimum 44px touch target helper */
+@utility tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@utility surface-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Review headline and italic summaries follow the supplied serif reference. */
+.review-serif {
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif;
+  letter-spacing: -0.015em;
+}
+
+/* Japanese market typography: avoid overflow of long unbroken JA strings. */
+:lang(ja) {
+  font-feature-settings: "palt" 1;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Home hero: warm service background with a restrained green/orange product focus. */
+.hero-support {
+  background:
+    radial-gradient(circle at 82% 28%, oklch(0.93 0.032 160 / 72%) 0 15%, transparent 36%),
+    linear-gradient(135deg, oklch(0.985 0.01 95), oklch(0.96 0.018 120));
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
+  align-items: stretch;
+  gap: 3rem;
+  padding-block: 3.5rem 5rem;
+}
+
+.home-hero-copy {
+  align-self: center;
+}
+
+.hero-product-stage {
+  min-height: 23rem;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero-product-layout {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(5rem, 0.43fr) minmax(15rem, 1.57fr);
+  align-items: stretch;
+  gap: clamp(0.2rem, 0.7vw, 0.7rem);
+  padding-inline: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.hero-product-slot {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.hero-product-subject {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 28px oklch(0.29 0.023 165 / 16%));
+  will-change: transform;
+}
+
+.hero-product-subject--thermometer {
+  animation: hero-float-product 5.2s ease-in-out infinite;
+}
+
+.hero-product-slot--thermometer {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-pet-group {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  animation: hero-float-pets 6.2s ease-in-out -1s infinite;
+}
+
+.hero-pet-family {
+  width: 106%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+  filter: drop-shadow(0 28px 28px oklch(0.29 0.023 165 / 16%));
+}
+
+.hero-product-shadow {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  width: min(72%, 20rem);
+  height: 2.25rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: oklch(0.29 0.023 165 / 16%);
+  filter: blur(18px);
+  animation: product-shadow 5s ease-in-out infinite;
+}
+
+.hero-orbits {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-orbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid oklch(0.452 0.083 163 / 18%);
+}
+
+.hero-orbit-one {
+  inset: 8% 2% 14%;
+  transform: rotate(-13deg);
+}
+
+.hero-orbit-two {
+  inset: 17% 11% 23%;
+  border-color: oklch(0.626 0.124 51 / 22%);
+  transform: rotate(19deg);
+}
+
+.choose-product-section {
+  background:
+    linear-gradient(135deg, oklch(0.945 0.014 150 / 82%), oklch(0.985 0.01 95)),
+    var(--color-background);
+}
+
+.support-assistant-panel {
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: min(24rem, calc(100vw - 2rem));
+  height: min(36rem, calc(100vh - 3rem));
+  border-radius: 1.5rem;
+}
+
+@keyframes product-shadow {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.86);
+    opacity: 0.55;
+  }
+}
+
+@keyframes hero-float-product {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.7rem);
+  }
+}
+
+@keyframes hero-float-pets {
+  0%,
+  100% {
+    transform: translateY(0.2rem);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-product-stage {
+    min-height: 18rem;
+    order: -1;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-product-stage {
+    --hero-stage-extension: clamp(4rem, calc((100vw - 72rem) / 2), 13rem);
+    width: calc(100% + var(--hero-stage-extension));
+    margin-right: calc(var(--hero-stage-extension) * -1);
+    justify-self: end;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-product-stage {
+    min-height: 14rem;
+  }
+
+  .hero-product-layout {
+    grid-template-columns: minmax(4rem, 0.38fr) minmax(12rem, 1.62fr);
+    gap: 0;
+  }
+
+  .hero-pet-family {
+    width: 112%;
+  }
+
+  .support-assistant-panel {
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-product-shadow,
+  .hero-product-subject--thermometer,
+  .hero-pet-group {
+    animation: none;
+  }
+}
+
+/* Keep the homepage hero side by side on phones and tablets. */
+@media (max-width: 1023px) {
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    align-items: center;
+    gap: clamp(0.5rem, 3vw, 1.5rem);
+    padding-block: 1.5rem;
+  }
+
+  .home-product-stage {
+    min-height: 0;
+    height: clamp(10rem, 38vw, 19rem);
+    order: 0;
+    align-self: center;
+  }
+  .home-product-stage .hero-product-layout {
+    grid-template-columns: minmax(0, 0.43fr) minmax(0, 1.57fr);
+    gap: 0;
+    padding-inline: 0;
+  }
+  .home-product-stage .hero-pet-family {
+    width: 100%;
+    max-width: 100%;
+  }
+  .home-product-stage .hero-product-shadow {
+    bottom: 0;
+    height: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 0.25rem;
+    padding-block: 1.1rem;
+  }
+
+  .home-product-stage {
+    height: clamp(9rem, 40vw, 11rem);
+  }
+
+  .home-product-stage .hero-orbit-one {
+    inset: 10% 0 14%;
+  }
+
+  .home-product-stage .hero-orbit-two {
+    inset: 18% 7% 23%;
+  }
+}
+
+/* PCI01 support: pets followed by the thermometer on their right. */
+.pci-support-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.55fr);
+  align-items: center;
+  gap: 1.25rem 1rem;
+}
+.pci-support-hero-copy {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.pci-support-hero-copy h1 {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 7vw, 2.5rem);
+}
+.pci-support-hero-copy p {
+  margin-top: 0.75rem;
+}
+.pci-support-hero-product {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+}
+.pci-support-hero-pets {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+}
+.pci-support-hero-search {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+.pci-support-thermometer {
+  display: block;
+  width: auto;
+  height: clamp(8rem, 35vw, 12rem);
+  max-width: 100%;
+  object-fit: contain;
+  animation: hero-float-product 5.2s ease-in-out infinite;
+}
+.pci-support-floating-pets {
+  display: block;
+  width: 100%;
+  max-height: clamp(9rem, 42vw, 14rem);
+  object-fit: contain;
+  animation: hero-float-pets 6.2s ease-in-out -1s infinite;
+}
+@media (min-width: 1024px) {
+  .pci-support-hero-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(5rem, 0.27fr);
+    gap: 1.5rem;
+  }
+  .pci-support-hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .pci-support-hero-copy h1 {
+    font-size: 3rem;
+    white-space: normal;
+  }
+  .pci-support-hero-product {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+  .pci-support-hero-pets {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .pci-support-hero-search {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .pci-support-thermometer {
+    width: 100%;
+    height: auto;
+    max-height: 23rem;
+  }
+  .pci-support-floating-pets {
+    max-height: 30rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pci-support-thermometer,
+  .pci-support-floating-pets {
+    animation: none;
+  }
+}
+
+/* Keep the mobile support introduction and pet/product group side by side. */
+@media (max-width: 1023px) {
+  .pci-support-hero-grid {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 0.3fr) minmax(0, 0.1fr);
+    gap: 1.25rem 0.25rem;
+  }
+  .pci-support-hero-copy { grid-column: 1; grid-row: 1; }
+  .pci-support-hero-copy h1 { font-size: clamp(1.125rem, 5.2vw, 2rem); }
+  .pci-support-hero-copy p { font-size: 1rem; line-height: 1.55; }
+  .pci-support-hero-pets { grid-column: 2; grid-row: 1; align-self: center; }
+  .pci-support-hero-product {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    margin-left: -0.3rem;
+  }
+  .pci-support-hero-search { grid-column: 1 / -1; grid-row: 2; }
+  .pci-support-floating-pets { width: 100%; max-height: 15rem; }
+  .pci-support-thermometer { width: 100%; height: auto; max-height: 13rem; }
+}
