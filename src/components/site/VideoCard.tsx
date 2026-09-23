@@ -48,18 +48,14 @@ export function VideoCard({
         }}
       >
         {playable && video.videoUrl && isPlaying ? (
-          <video
-            controls
-            autoPlay
-            playsInline
-            poster={video.thumbnailUrl ?? undefined}
-            className="h-full w-full object-cover"
+          <iframe
+            className="h-full w-full"
             src={video.videoUrl}
-          >
-            {video.captionsUrl ? (
-              <track kind="captions" src={video.captionsUrl} srcLang={video.locale} default />
-            ) : null}
-          </video>
+            title={video.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         ) : (
           <>
             {video.thumbnailUrl ? (
