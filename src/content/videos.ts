@@ -200,7 +200,8 @@ const JP_ENTRIES: {
     description: "電池交換時は、先にシリコンカバーを外してから背面カバーを開けます。",
     thumbnailUrl: "/video7.png",
     videoUrl: "https://www.youtube.com/embed/Fm-PPwxLVss?si=6yyCkRYbfBO2Ee_1",
-    locale: "jp",},
+    locale: "jp",
+  },
 ];
 
 /**

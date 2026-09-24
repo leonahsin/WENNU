@@ -209,6 +209,7 @@ export const FAQ_PRIORITY_CATEGORY = "My Reading Looks Wrong";
 
 /** Compact customer-facing principles shown under the FAQ list. */
 export const FAQ_PRINCIPLES: string[] = [
+  
   "Use PCI01 at similar times, in similar places, and the same way each time, so you can build your pet's own everyday baseline.",
   "Treat readings as temperature-trend references. Don't judge your pet's health from a single reading.",
   "A high-temperature alert is a signal to pay attention, not a diagnosis.",

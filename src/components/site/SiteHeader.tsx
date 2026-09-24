@@ -7,6 +7,7 @@ import { AMAZON_URL } from "@/components/site/CommerceTrust";
 import { marketForPath } from "@/content/market";
 import { homeDestination } from "@/lib/supportSession";
 import { useSupportSession } from "@/lib/useSupportSession";
+import { useLocation } from '@tanstack/react-router';
 
 const SUPPORT_NAV = {
   us: [
@@ -29,6 +30,8 @@ const PRODUCT_NAV = {
 } as const;
 
 export function SiteHeader() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -121,7 +124,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="tap-target grid size-11 shrink-0 place-items-center rounded-xl text-primary transition hover:bg-secondary hover:text-warning"
+            className={`tap-target grid size-11 shrink-0 place-items-center rounded-xl text-primary transition-colors hover:bg-secondary ${isHomePage ? 'hidden' : ''}`}
             aria-expanded={open}
             aria-controls="site-menu"
             onClick={() => setOpen((value) => !value)}
