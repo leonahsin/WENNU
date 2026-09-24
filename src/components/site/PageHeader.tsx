@@ -37,7 +37,9 @@ export function PageHeader({
         aria-hidden
         className="absolute bottom-5 right-[22%] size-20 rounded-full bg-primary/5"
       />
-     <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[50%] sm:pr-[50%] md:pr-0 relative z-10" : "min-w-0"}>
+      
+      {/* 1. 恢復外層大容器原本的樣式，找回網頁邊距 */}
+      <div className="relative mx-auto w-full max-w-6xl px-4 py-9 sm:px-6 sm:py-14">
         {crumbs?.length ? (
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
@@ -68,21 +70,27 @@ export function PageHeader({
                 : undefined
           }
         >
-         <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[45%] sm:pr-[40%] md:pr-0 relative z-10" : "min-w-0"}>
+          {/* 2. 移除錯誤的推擠 (pr-[45%])，恢復原狀 */}
+          <div className={leadingMedia ? "pci-support-hero-copy min-w-0" : "min-w-0"}>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
               </p>
             ) : null}
-            <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl">
+            
+            {/* 3. 在標題直接限制最大寬度 (手機 50%，平板 3xl)，確保文字絕對不會跨界壓圖 */}
+            <h1 className="mt-3 max-w-[50%] sm:max-w-3xl text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl relative z-10">
               {title}
             </h1>
+            
+            {/* 4. 在敘述直接限制最大寬度 (手機 50%，平板 2xl)，確保順利換行 */}
             {description ? (
-             <p className="mt-4 max-w-[45%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p className="mt-4 max-w-[50%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg relative z-10">
                 {description}
               </p>
             ) : null}
           </div>
+          
           {leadingMedia ? <div className="pci-support-hero-product">{leadingMedia}</div> : null}
           {media ? (
             <div
