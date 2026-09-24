@@ -68,7 +68,7 @@ export function PageHeader({
                 : undefined
           }
         >
-          <div className={leadingMedia ? "pci-support-hero-copy min-w-0" : "min-w-0"}>
+         <div className={leadingMedia ? "pci-support-hero-copy min-w-0 w-[55%] sm:w-[60%] md:w-full relative z-10" : "min-w-0"}>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}

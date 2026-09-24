@@ -40,19 +40,29 @@ export function VideoCard({
          : "flex flex-col h-full overflow-hidden rounded-2xl bg-card ring-1 ring-border/60"
       }
     >
-    <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-[#eef2ef]">
-  {thumbnailUrl ? (
-    <img
-      src={thumbnailUrl}
-      alt={video.title}
-      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+  <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-[#eef2ef]">
+  {isPlaying && videoUrl ? (
+    <iframe
+      src={`${videoUrl}&autoplay=1`}
+      title={video.title}
+      className="h-full w-full border-0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
     />
+  ) : thumbnailUrl ? (
+    <div 
+      className="relative block h-full w-full cursor-pointer group"
+      onClick={() => setIsPlaying(true)}
+    >
+      <img
+        src={thumbnailUrl}
+        alt={video.title}
+        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+    </div>
   ) : (
     <div className="flex h-full w-full items-center justify-center">
-      {/* 中間的膠捲圖示 */}
       <Film className="size-10 text-muted-foreground/40" />
-      
-      {/* 左下角的 Coming Soon 標籤 */}
       <div className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
         Video coming soon
       </div>
