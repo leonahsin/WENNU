@@ -108,8 +108,7 @@ export function PageHeader({
             ) : null}
           </div>
           
-          {leadingMedia ? <div className="pci-support-hero-product">{leadingMedia}</div> : null}
-          {media ? (
+         {leadingMedia ? <div className="pci-support-hero-product hidden sm:block">{leadingMedia}</div> : null}
             <div
               className={
                 leadingMedia
@@ -119,7 +118,7 @@ export function PageHeader({
             >
               {media}
             </div>
-          ) : null}
+           : null
           {children ? (
             <div
               className={
