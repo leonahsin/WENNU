@@ -43,7 +43,7 @@ const COPY = {
     all: "すべてのガイド",
     allChip: "すべて",
     filter: "カテゴリーで絞り込む",
-    count: (n: number) => `${n} 件の動画ガイドを表示しています。`,
+    count: (n: number) => `${n} 件の動画ガイドを表示しています。クリックで再生！`,
     duration: "再生時間は公開時にご案内します",
     comingSoon: "動画は準備中です",
     nextEyebrow: "次のステップ",

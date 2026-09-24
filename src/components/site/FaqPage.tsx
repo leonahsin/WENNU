@@ -319,11 +319,14 @@ export function FaqPage({ market }: { market: MarketId }) {
           />
         </summary>
         <ul className="mt-4 grid gap-3 border-t border-primary/10 pt-4 sm:grid-cols-2">
-          {principles.map((line) => (
-            <li key={line} className="text-sm leading-relaxed text-muted-foreground">
-              {line}
+          {principles.map((line, index) => (
+            <li key={line} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
+                 {index + 1}
+              </span>
+              <span>{line}</span>
             </li>
-          ))}
+        ))}
         </ul>
       </details>
       <div className="grid items-start gap-5 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8">

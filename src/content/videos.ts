@@ -133,6 +133,9 @@ const JP_ENTRIES: {
   category: VideoCategoryId;
   title: string;
   description: string;
+  thumbnailUrl?: string;
+  videoUrl?: string;
+  locale?: string;
 }[] = [
   {
     id: "overview",
@@ -140,30 +143,45 @@ const JP_ENTRIES: {
     title: "PCI01 をはじめて使う",
     description:
       "本体の各部とボタンを確認し、単4形乾電池2本を入れて電源を入れるまでをご案内します。",
+    thumbnailUrl: "/video1.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "jp",
   },
   {
     id: "memory",
     category: "how-to-use",
     title: "メモリー機能の使い方",
     description: "メモリーボタンで過去の測定値を確認します。最大30件まで保存できます。",
+    thumbnailUrl: "/video2.png",
+    videoUrl: "https://www.youtube.com/embed/Y68Y8b3-8fs?si=M3AGH2iALYmG4_Db",
+    locale: "jp",
   },
   {
     id: "dogs",
     category: "how-to-use",
     title: "犬の測定",
     description: "犬モードに切り替え、正しい持ち方と測定位置をご案内します。",
+    thumbnailUrl: "/video3.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "jp"
   },
   {
     id: "cats",
     category: "how-to-use",
     title: "猫の測定",
     description: "猫モードに切り替え、コーム機能とやさしい測定位置をご案内します。",
+    thumbnailUrl: "/video4.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "jp"
   },
   {
     id: "keep-scanning",
     category: "how-to-use",
     title: "続けて測る理由",
     description: "1回だけで判断せず、複数回測定して安定した数値を確認します。",
+    thumbnailUrl: "/video5.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "jp"
   },
   {
     id: "clean-tip",
@@ -171,13 +189,18 @@ const JP_ENTRIES: {
     title: "PCI01 のお手入れ",
     description:
       "取り外せるブルーのシリコンカバーは手洗い、シリコン製の測定先端とコームの歯は水洗い。本体は濡らさずにお手入れします。",
+    thumbnailUrl: "/video6.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "jp",
   },
   {
     id: "remove-cover-battery",
     category: "cleaning-care",
     title: "背面カバーを開ける前にカバーを外す",
     description: "電池交換時は、先にシリコンカバーを外してから背面カバーを開けます。",
-  },
+    thumbnailUrl: "/video7.png",
+    videoUrl: "https://www.youtube.com/embed/Fm-PPwxLVss?si=6yyCkRYbfBO2Ee_1",
+    locale: "jp",},
 ];
 
 /**
