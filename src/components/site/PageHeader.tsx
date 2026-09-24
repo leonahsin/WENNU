@@ -11,7 +11,9 @@ interface Crumb {
 interface PageHeaderProps {
   eyebrow?: string;
   title: string;
+  mobileTitle?: string; // 手機版專用短標題（可選）
   description?: ReactNode;
+  mobileDescription?: ReactNode; // 手機版專用短描述（可選）
   crumbs?: Crumb[];
   children?: ReactNode;
   media?: ReactNode;
@@ -21,6 +23,9 @@ interface PageHeaderProps {
 export function PageHeader({
   eyebrow,
   title,
+  mobileTitle,
+  description,
+  mobileDescription,
   crumbs,
   children,
   media,
@@ -76,9 +81,31 @@ export function PageHeader({
               </p>
             ) : null}
             
+            {/* 標題：支援手機版短標題、電腦版長標題切換 */}
             <h1 className="mt-3 text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl">
-              {title}
+              {mobileTitle ? (
+                <>
+                  <span className="sm:hidden">{mobileTitle}</span>
+                  <span className="hidden sm:inline">{title}</span>
+                </>
+              ) : (
+                title
+              )}
             </h1>
+            
+            {/* 描述：支援手機版短描述、電腦版長描述切換 */}
+            {(description || mobileDescription) ? (
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {mobileDescription ? (
+                  <>
+                    <span className="sm:hidden">{mobileDescription}</span>
+                    <span className="hidden sm:inline">{description}</span>
+                  </>
+                ) : (
+                  description
+                )}
+              </p>
+            ) : null}
           </div>
           
           {leadingMedia ? <div className="pci-support-hero-product">{leadingMedia}</div> : null}
