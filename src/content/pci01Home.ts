@@ -7,6 +7,7 @@
 
 import type { MarketId } from "./market";
 
+
 export interface PrimaryDestination {
   id: "getting-started" | "videos" | "faq" | "support-request";
   title: string;
@@ -19,28 +20,28 @@ export const PCI01_PRIMARY_US: PrimaryDestination[] = [
   {
     id: "getting-started",
     title: "Getting Started",
-    description: "Set up your PCI01 and take your first reading, step by step.",
+    description: "Quick setup & your first reading.",
     to: "/getting-started",
     emphasis: "primary",
   },
   {
     id: "videos",
     title: "Video Guides",
-    description: "Watch clear, step-by-step videos for using and caring for PCI01.",
+    description: "Step-by-step video tutorials.",
     to: "/videos",
     emphasis: "secondary",
   },
   {
     id: "faq",
     title: "FAQ",
-    description: "Common questions and troubleshooting steps, together in one place.",
+    description: "Answers to common questions.",
     to: "/faq",
     emphasis: "secondary",
   },
   {
     id: "support-request",
     title: "Support Request",
-    description: "Still need help? Send your details to the support team.",
+    description: "Contact our support team.",
     to: "/support-request",
     emphasis: "secondary",
   },
