@@ -155,6 +155,7 @@ export function Pci01SupportHome({ market, entrySource, initialQuery }: Props) {
                   className="tap-target rounded-full border border-border bg-background px-4 py-2 text-left text-sm font-medium text-muted-foreground transition hover:-translate-y-0.5 hover:border-warning hover:text-foreground motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                 >
                   {question}
+                  
                 </button>
               ))}
             </div>

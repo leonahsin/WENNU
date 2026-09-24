@@ -28,11 +28,15 @@ export function PrimaryCardLink({ to, title, description, emphasis }: PrimaryCar
       className="group flex flex-col justify-between gap-4 rounded-2xl bg-card p-6 ring-1 ring-border/60 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
     >
       <div className="flex flex-col gap-3">
-        <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary-foreground/20 group-hover:text-primary-foreground">
-          <Icon className="size-6" />
+        {/* 把圖示跟標題包在同一個 flex 橫列裡 */}
+        <div className="flex items-center gap-3">
+          <div className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary-foreground/20 group-hover:text-primary-foreground">
+            <Icon className="size-6" />
+          </div>
+          <h3 className="text-xl font-bold tracking-tight">{title}</h3>
         </div>
         
-        <h3 className="text-xl font-bold tracking-tight">{title}</h3>
+  
         <p className="text-sm text-muted-foreground transition-colors group-hover:text-primary-foreground/90">
           {description}
         </p>

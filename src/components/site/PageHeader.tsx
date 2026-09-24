@@ -78,8 +78,8 @@ export function PageHeader({
               {title}
             </h1>
             {description ? (
-              <p className="text-lg text-muted-foreground max-w-[60%] md:max-w-none">
-                 {description}
+             <p className="mt-4 max-w-[60%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {description}
               </p>
             ) : null}
           </div>
