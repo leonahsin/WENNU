@@ -23,7 +23,7 @@ const COPY = {
     all: "All guides",
     allChip: "All",
     filter: "Filter videos by category",
-    count: (n: number) => `Showing ${n} video guides.`,
+    count: (n: number) => `Showing ${n} video guides. Click to play!!`,
     duration: "Duration confirmed when the video is published",
     comingSoon: "Video coming soon",
     nextEyebrow: "Next best step",

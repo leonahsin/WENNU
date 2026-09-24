@@ -1,4 +1,4 @@
-import { Film, Play } from "lucide-react";
+import { Film } from "lucide-react";
 import { useState } from "react";
 import type { VideoGuide } from "@/content/videos";
 
@@ -21,12 +21,12 @@ export function VideoCard({
   lang,
   featured = false,
 }: VideoCardProps) {
-  // 1. 如果你原本的圖片網址失效，自動套用一張好看的預設圖避免破圖
-  const thumbnailUrl = video.thumbnailUrl || "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800";
-  const videoUrl = video.videoUrl || "https://www.youtube.com/embed/FK1stNDefus";
+  // 已經拿掉防呆預設圖，現在完全讀取你在 videos.ts 填寫的網址
+  const thumbnailUrl = video.thumbnailUrl;
+  const videoUrl = video.videoUrl;
   
-  // 2. 確保點擊後 YouTube 會自動播放
-  const autoPlayUrl = videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
+  // 點擊後自動播放的設定
+  const autoPlayUrl = videoUrl ? (videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`) : "";
   
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -41,9 +41,11 @@ export function VideoCard({
     >
       <div 
         className="relative aspect-video w-full overflow-hidden rounded-xl bg-secondary cursor-pointer group"
-        onClick={() => setIsPlaying(true)}
+        onClick={() => {
+          if (videoUrl) setIsPlaying(true);
+        }}
       >
-        {isPlaying ? (
+        {isPlaying && videoUrl ? (
           <iframe
             className="h-full w-full object-cover"
             src={autoPlayUrl}
@@ -54,20 +56,21 @@ export function VideoCard({
           ></iframe>
         ) : (
           <>
-            <img
-              src={thumbnailUrl}
-              alt={thumbnailAlt}
-              loading={featured ? "eager" : "lazy"}
-              decoding="async"
-              // 使用 object-cover 讓圖片完美填滿框框
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            
-            {/* 綠色的大播放鍵已經移除了！只保留左下角的影片長度提示 */}
-            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md bg-card/95 px-2 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
-              <Play aria-hidden className="size-3.5" />
-              {video.duration ?? durationPlaceholder}
-            </span>
+            {thumbnailUrl ? (
+              <img
+                src={thumbnailUrl}
+                alt={thumbnailAlt}
+                loading={featured ? "eager" : "lazy"}
+                decoding="async"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : (
+              // 如果某個影片還沒填寫圖片網址，會顯示這個乾淨的灰色底圖取代
+              <div className="flex h-full w-full items-center justify-center text-muted-foreground bg-secondary">
+                <Film aria-hidden className="size-8" />
+              </div>
+            )}
+            {/* 白底灰字的影片長度提示已經被刪除 */}
           </>
         )}
       </div>

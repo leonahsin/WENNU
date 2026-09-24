@@ -66,20 +66,21 @@ const US_ENTRIES: {
 }[] = [
   {
     id: "getting-started",
+    category: "getting-started",
     title: "Getting Started with PCI01",
     description: "Meet the device, identify its buttons, and install two AAA batteries and power it on.",
-    category: "getting-started",
     thumbnailUrl: "/video1.png",
     videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
-    duration: "2:30",
     locale: "en",
   },
   {
     id: "memory",
     category: "how-to-use",
     title: "Using the Memory Function",
-    description:
-      "Use the memory button to recall past readings, with storage for up to 30 readings.",
+    description:"Use the memory button to recall past readings, with storage for up to 30 readings.",
+    thumbnailUrl: "/video2.png",
+    videoUrl: "https://www.youtube.com/embed/Y68Y8b3-8fs?si=M3AGH2iALYmG4_Db",
+    locale: "en",
   },
   {
     id: "dogs",
@@ -87,18 +88,24 @@ const US_ENTRIES: {
     title: "Measuring Your Dog",
     description:
       "Switch to Dog mode, then learn the correct hold and positioning for each measuring spot.",
+    thumbnailUrl: "/video3.png",
+    locale: "en",
   },
   {
     id: "cats",
     category: "how-to-use",
     title: "Measuring Your Cat",
     description: "Switch to Cat mode, then learn the comb function and gentle measuring positions.",
+    thumbnailUrl: "/video4.png",
+    locale: "en",
   },
   {
     id: "keep-scanning",
     category: "how-to-use",
     title: "Why Keep Scanning?",
     description: "Scan a few times and use the stable reading instead of relying on a single scan.",
+    thumbnailUrl: "/video5.png",
+    locale: "en",
   },
   {
     id: "clean-tip",
@@ -106,12 +113,18 @@ const US_ENTRIES: {
     title: "Cleaning PCI01",
     description:
       "Hand-washing the removable blue silicone cover and washing the silicone measuring end and comb teeth with water, while the device body stays dry.",
+    thumbnailUrl: "/video6.png",
+    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    locale: "en",
   },
   {
     id: "remove-cover-battery",
     category: "cleaning-care",
     title: "Removing the blue silicone cover before opening the back cover",
     description: "For a battery change, remove the silicone cover first, then open the back cover.",
+    thumbnailUrl: "/video7.png",
+    videoUrl: "https://www.youtube.com/embed/Fm-PPwxLVss?si=6yyCkRYbfBO2Ee_1",
+    locale: "en",
   },
 ];
 
@@ -204,7 +217,7 @@ function build(
   locale: string,
   entries: any[],
 ): VideoGuide[] {
-  return sortByOrder(entries).map((entry) => ({
+  return entries.map((entry: any) => ({
     ...entry,
     id: `${market}-${entry.id}`,
     baseId: entry.id,
