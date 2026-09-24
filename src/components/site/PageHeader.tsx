@@ -61,7 +61,7 @@ export function PageHeader({
             </ol>
           </nav>
         ) : null}
-        <div
+       <div
           className={
             leadingMedia
               ? "pci-support-hero-grid"
@@ -70,8 +70,8 @@ export function PageHeader({
                 : undefined
           }
         >
-          {/* 加上 pr-[45%] sm:pr-0，強迫手機版文字區塊右側必須留白，絕對不准碰到右邊的圖 */}
-          <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[45%] sm:pr-0 relative z-10" : "min-w-0"}>
+          {/* 加上 max-w-[50%]，並強制讓手機版的右側留出空間 */}
+          <div className={leadingMedia ? "pci-support-hero-copy min-w-0 max-w-[52%] sm:max-w-none relative z-10" : "min-w-0"}>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
