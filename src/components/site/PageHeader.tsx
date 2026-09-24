@@ -71,7 +71,10 @@ export function PageHeader({
           }
         >
           {/* 加上 max-w-[50%]，並強制讓手機版的右側留出空間 */}
-          <div className={leadingMedia ? "pci-support-hero-copy min-w-0 max-w-[52%] sm:max-w-none relative z-10" : "min-w-0"}>
+         <div 
+      className={leadingMedia ? "pci-support-hero-copy min-w-0 relative z-10" : "min-w-0"}
+      style={{ width: "52%", maxWidth: "52%" }}
+>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
