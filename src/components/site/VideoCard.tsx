@@ -2,6 +2,7 @@ import { Film } from "lucide-react";
 import { useState } from "react";
 import type { VideoGuide } from "@/content/videos";
 
+
 interface VideoCardProps {
   video: VideoGuide;
   categoryLabel: string;
@@ -36,46 +37,30 @@ export function VideoCard({
       className={
         featured
           ? "grid gap-6 overflow-hidden rounded-3xl bg-card p-5 ring-1 ring-border/60 sm:grid-cols-2 sm:items-center sm:p-7"
-          : "flex flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-border/60"
+         : "flex flex-col h-full overflow-hidden rounded-2xl bg-card ring-1 ring-border/60"
       }
     >
-      <div 
-        className="relative aspect-video w-full overflow-hidden rounded-xl bg-secondary cursor-pointer group"
-        onClick={() => {
-          if (videoUrl) setIsPlaying(true);
-        }}
-      >
-        {isPlaying && videoUrl ? (
-          <iframe
-            className="h-full w-full object-cover"
-            src={autoPlayUrl}
-            title={video.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        ) : (
-          <>
-            {thumbnailUrl ? (
-              <img
-                src={thumbnailUrl}
-                alt={thumbnailAlt}
-                loading={featured ? "eager" : "lazy"}
-                decoding="async"
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            ) : (
-              // 如果某個影片還沒填寫圖片網址，會顯示這個乾淨的灰色底圖取代
-              <div className="flex h-full w-full items-center justify-center text-muted-foreground bg-secondary">
-                <Film aria-hidden className="size-8" />
-              </div>
-            )}
-            {/* 白底灰字的影片長度提示已經被刪除 */}
-          </>
-        )}
+    <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-[#eef2ef]">
+  {thumbnailUrl ? (
+    <img
+      src={thumbnailUrl}
+      alt={video.title}
+      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center">
+      {/* 中間的膠捲圖示 */}
+      <Film className="size-10 text-muted-foreground/40" />
+      
+      {/* 左下角的 Coming Soon 標籤 */}
+      <div className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+        Video coming soon
       </div>
+    </div>
+  )}
+</div>
 
-      <div className={featured ? "min-w-0" : "flex flex-1 flex-col gap-2 p-5"}>
+      <div className={featured ? "min-w-0" : "flex flex-col flex-1 p-5"}>
         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
           {categoryLabel}
         </p>

@@ -88,7 +88,7 @@ const US_ENTRIES: {
     title: "Measuring Your Dog",
     description:
       "Switch to Dog mode, then learn the correct hold and positioning for each measuring spot.",
-    thumbnailUrl: "/video3.png",
+    thumbnailUrl: "",
     locale: "en",
   },
   {
@@ -96,7 +96,7 @@ const US_ENTRIES: {
     category: "how-to-use",
     title: "Measuring Your Cat",
     description: "Switch to Cat mode, then learn the comb function and gentle measuring positions.",
-    thumbnailUrl: "/video4.png",
+    thumbnailUrl: "",
     locale: "en",
   },
   {
@@ -104,7 +104,7 @@ const US_ENTRIES: {
     category: "how-to-use",
     title: "Why Keep Scanning?",
     description: "Scan a few times and use the stable reading instead of relying on a single scan.",
-    thumbnailUrl: "/video5.png",
+    thumbnailUrl: "",
     locale: "en",
   },
   {
@@ -161,7 +161,7 @@ const JP_ENTRIES: {
     category: "how-to-use",
     title: "犬の測定",
     description: "犬モードに切り替え、正しい持ち方と測定位置をご案内します。",
-    thumbnailUrl: "/video3.png",
+    thumbnailUrl: "",
     videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
     locale: "jp"
   },
@@ -170,7 +170,7 @@ const JP_ENTRIES: {
     category: "how-to-use",
     title: "猫の測定",
     description: "猫モードに切り替え、コーム機能とやさしい測定位置をご案内します。",
-    thumbnailUrl: "/video4.png",
+    thumbnailUrl: "",
     videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
     locale: "jp"
   },
@@ -179,7 +179,7 @@ const JP_ENTRIES: {
     category: "how-to-use",
     title: "続けて測る理由",
     description: "1回だけで判断せず、複数回測定して安定した数値を確認します。",
-    thumbnailUrl: "/video5.png",
+    thumbnailUrl: "",
     videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
     locale: "jp"
   },
