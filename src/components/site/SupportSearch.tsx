@@ -43,6 +43,7 @@ export function SupportSearch({
   id = "support-search",
 }: SupportSearchProps) {
   const copy = COPY[market];
+  return null;
   const results = useMemo(() => searchSupport(market, value), [market, value]);
   const groups = useMemo(() => groupResults(results), [results]);
   const query = value.trim();

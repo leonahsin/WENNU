@@ -107,10 +107,10 @@ export function Pci01SupportHome({ market, entrySource, initialQuery }: Props) {
             <span className="hidden lg:inline">{copy.description}</span>
             <span className="lg:hidden">
               <span className="block whitespace-nowrap">
-                {jp ? "使い方・よくある質問" : "Guides and answers."}
+                {jp ? "PCI01に必要なすべてがここにあります。" : "Everything you need for your PCI01."}
               </span>
               <span className="block whitespace-nowrap">
-                {jp ? "サポートへ相談" : "Contact support."}
+                {jp ? "チュートリアルを見たり、よくある質問を確認したり、サポートにお問い合わせいただけます。" : "Explore tutorials, browse FAQs, or reach out for help."}
               </span>
             </span>
           </>
@@ -140,7 +140,7 @@ export function Pci01SupportHome({ market, entrySource, initialQuery }: Props) {
           />
         }
       >
-        <div className="max-w-3xl rounded-3xl border border-border bg-card/95 p-4 shadow-soft sm:p-5">
+        <div className="hidden max-w-3xl rounded-3xl border border-border bg-card/95 p-4 shadow-soft sm:p-5">
           <div className="min-w-0">
             <SupportSearch market={market} value={query} onChange={updateQuery} id="pci01-search" />
           </div>
