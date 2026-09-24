@@ -70,22 +70,20 @@ export function PageHeader({
                 : undefined
           }
         >
-          {/* 2. 移除錯誤的推擠 (pr-[45%])，恢復原狀 */}
-          <div className={leadingMedia ? "pci-support-hero-copy min-w-0" : "min-w-0"}>
+          {/* 加上 pr-[45%] sm:pr-0，強迫手機版文字區塊右側必須留白，絕對不准碰到右邊的圖 */}
+          <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[45%] sm:pr-0 relative z-10" : "min-w-0"}>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
               </p>
             ) : null}
             
-            {/* 3. 在標題直接限制最大寬度 (手機 50%，平板 3xl)，確保文字絕對不會跨界壓圖 */}
-            <h1 className="mt-3 max-w-[50%] sm:max-w-3xl text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl relative z-10">
+            <h1 className="mt-3 text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl">
               {title}
             </h1>
             
-            {/* 4. 在敘述直接限制最大寬度 (手機 50%，平板 2xl)，確保順利換行 */}
             {description ? (
-              <p className="mt-4 max-w-[50%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg relative z-10">
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {description}
               </p>
             ) : null}
