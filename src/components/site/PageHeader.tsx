@@ -68,7 +68,7 @@ export function PageHeader({
                 : undefined
           }
         >
-         <div className={leadingMedia ? "pci-support-hero-copy min-w-0 w-[55%] sm:w-[60%] md:w-full relative z-10" : "min-w-0"}>
+         <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[45%] sm:pr-[40%] md:pr-0 relative z-10" : "min-w-0"}>
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
@@ -78,7 +78,7 @@ export function PageHeader({
               {title}
             </h1>
             {description ? (
-             <p className="mt-4 max-w-[60%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+             <p className="mt-4 max-w-[45%] sm:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {description}
               </p>
             ) : null}
