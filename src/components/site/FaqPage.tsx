@@ -151,6 +151,7 @@ const COPY = {
 } as const;
 
 export function FaqPage({ market }: { market: MarketId }) {
+ console.log("Vercel 現在真正連線的資料庫是：", (import.meta.env as any).VITE_SUPABASE_URL);
   const jp = market === "jp";
   const copy = COPY[market];
   const topics = TOPICS[market];
@@ -158,24 +159,33 @@ export function FaqPage({ market }: { market: MarketId }) {
   // 預設先用舊資料墊檔
   const [faqItems, setFaqItems] = useState<any[]>(jp ? JP_FAQ_ITEMS : FAQ_ITEMS);
 
-  // 1. 根據語言動態抓取 Supabase
   useEffect(() => {
     const fetchFaqs = async () => {
       const currentLang = jp ? "jp" : "en";
+      console.log(`[檢查點 1] 準備抓取語言：${currentLang}`);
+      
       const { data, error } = await supabase
         .from('faqs')
         .select('*')
         .eq('language', currentLang);
       
+      console.log("[檢查點 2] Supabase 回傳完整結果：", { data, error });
+
       if (error) {
-        console.error("讀取 Supabase FAQ 失敗：", error);
-      } else if (data && data.length > 0) {
-        setFaqItems(data);
+        console.error("❌ 讀取 Supabase FAQ 失敗，原因：", error.message, error.details);
+      } else if (data) {
+        console.log(`✅ 成功連線！共抓到 ${data.length} 筆資料`);
+        if (data.length > 0) {
+          setFaqItems(data);
+        } else {
+          console.warn("⚠️ 連線成功，但資料庫裡是空的（0筆）！");
+        }
       }
     };
 
     fetchFaqs();
   }, [jp]);
+  
 
   const principles = jp ? JP_FAQ_PRINCIPLES : FAQ_PRINCIPLES;
   const troubleshooting = jp ? JP_TROUBLESHOOTING_CATEGORIES : TROUBLESHOOTING_CATEGORIES;
