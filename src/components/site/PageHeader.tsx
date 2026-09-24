@@ -37,7 +37,7 @@ export function PageHeader({
         aria-hidden
         className="absolute bottom-5 right-[22%] size-20 rounded-full bg-primary/5"
       />
-      <div className="relative mx-auto w-full max-w-6xl px-4 py-9 sm:px-6 sm:py-14">
+     <div className={leadingMedia ? "pci-support-hero-copy min-w-0 pr-[50%] sm:pr-[50%] md:pr-0 relative z-10" : "min-w-0"}>
         {crumbs?.length ? (
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
