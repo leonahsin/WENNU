@@ -88,7 +88,7 @@ const US_ENTRIES: {
     title: "Measuring Your Dog",
     description:
       "Switch to Dog mode, then learn the correct hold and positioning for each measuring spot.",
-    thumbnailUrl: "",
+    thumbnailUrl: "/video3.png",
     locale: "en",
   },
   {
@@ -96,7 +96,7 @@ const US_ENTRIES: {
     category: "how-to-use",
     title: "Measuring Your Cat",
     description: "Switch to Cat mode, then learn the comb function and gentle measuring positions.",
-    thumbnailUrl: "",
+    thumbnailUrl: "/video4.png",
     locale: "en",
   },
   {
@@ -104,7 +104,7 @@ const US_ENTRIES: {
     category: "how-to-use",
     title: "Why Keep Scanning?",
     description: "Scan a few times and use the stable reading instead of relying on a single scan.",
-    thumbnailUrl: "",
+    thumbnailUrl: "/video5.png",
     locale: "en",
   },
   {
