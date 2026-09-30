@@ -17,8 +17,8 @@ const COPY = {
   us: {
     home: "PCI01 Support",
     homeTo: "/product/pci01",
-    crumb: "Watch & Learn",
-    title: "PCI01 video guides",
+    crumb: "Video Guides",
+    title: "PCI01 Video Guides",
     description: "Short videos that walk through setup, measuring, care and common fixes.",
     all: "All guides",
     allChip: "All",

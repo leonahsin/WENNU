@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import type { MarketId } from "@/content/market";
 import { customerReviews } from "@/content/customer-reviews";
 
-export const AMAZON_URL = "https://www.amazon.com/s?k=WENNU+FurGlo+PCI01";
+export const AMAZON_URL = "https://www.amazon.com/-/zh_TW/WENNU/dp/B0H9K9LXPX/ref=sr_1_1?dib=eyJ2IjoiMSJ9.whLX3x0C-eKEMPgpWdOq4w.ofej5Us66UB1NaSvox_jCYN6dYHD3pBFdqzI1rgIUr4&dib_tag=se&keywords=WENNU+FurGlo+PCI01&qid=1790746147&sr=8-1";
 
 export function AmazonButton({ market }: { market: MarketId }) {
   return (

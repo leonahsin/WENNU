@@ -62,46 +62,53 @@
 
 :root {
   --radius: 0.875rem;
-  /* #F8F7F2 */
-  --background: oklch(0.972 0.008 95);
-  /* #20332D */
-  --foreground: oklch(0.29 0.023 165);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.29 0.023 165);
+
+  
+  --background:  oklch(0.972 0.008 95); 
+  --foreground: oklch(0.28 0.02 50);
+  --card: oklch(1 0 0); /* 卡片純白 */
+  --card-foreground: oklch(0.28 0.02 50);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.29 0.023 165);
-  /* #21684E */
-  --primary: oklch(0.452 0.083 163);
-  --primary-foreground: oklch(0.988 0.006 95);
-  --secondary: oklch(0.945 0.014 150);
-  --secondary-foreground: oklch(0.34 0.05 163);
-  --muted: oklch(0.955 0.008 120);
-  /* #61736B */
-  --muted-foreground: oklch(0.525 0.018 163);
-  --accent: oklch(0.93 0.02 160);
-  --accent-foreground: oklch(0.34 0.05 163);
-  --destructive: oklch(0.52 0.17 27);
-  --destructive-foreground: oklch(0.99 0.005 95);
-  /* #C86E3C */
-  --warning: oklch(0.626 0.124 51);
-  --warning-foreground: oklch(0.99 0.005 95);
-  --warning-soft: oklch(0.955 0.03 66);
-  --border: oklch(0.9 0.012 140);
-  --input: oklch(0.88 0.012 140);
-  --ring: oklch(0.452 0.083 163);
-  --chart-1: oklch(0.452 0.083 163);
-  --chart-2: oklch(0.626 0.124 51);
-  --chart-3: oklch(0.525 0.018 163);
-  --chart-4: oklch(0.7 0.06 163);
-  --chart-5: oklch(0.85 0.03 95);
-  --sidebar: oklch(0.988 0.006 95);
-  --sidebar-foreground: oklch(0.29 0.023 165);
-  --sidebar-primary: oklch(0.452 0.083 163);
-  --sidebar-primary-foreground: oklch(0.988 0.006 95);
-  --sidebar-accent: oklch(0.945 0.014 150);
-  --sidebar-accent-foreground: oklch(0.34 0.05 163);
-  --sidebar-border: oklch(0.9 0.012 140);
-  --sidebar-ring: oklch(0.452 0.083 163);
+  --popover-foreground: oklch(0.28 0.02 50);
+
+  /* 2. 降低黃色感，改為極淡的溫柔暖白 (用於微底色與標籤) */
+  --secondary: oklch(0.97 0.01 80); /* 極淡暖白，不再偏黃 */
+  --secondary-foreground: oklch(0.38 0.12 18);
+  --muted: oklch(0.97 0.01 80); /* 極淡暖白 */
+  --muted-foreground: oklch(0.55 0.02 60);
+  --accent: oklch(0.97 0.01 80);
+  --accent-foreground: oklch(0.38 0.12 18);
+
+  /* 3. 強制統一所有品牌色、警告色為「復古勃根地紅」 */
+  /* 這樣不同步驟混用變數時，顏色依然會完美統一 */
+  --primary: oklch(0.38 0.12 18);
+  --primary-foreground: oklch(0.985 0.005 80);
+  --warning: oklch(0.38 0.12 18); 
+  --warning-foreground: oklch(0.985 0.005 80);
+  --warning-soft: oklch(0.90 0.04 20); /* 柔和的淡紅色底 */
+  --destructive: oklch(0.38 0.12 18); 
+  --destructive-foreground: oklch(0.985 0.005 80);
+
+  /* 邊框與輸入框 */
+  --border: oklch(0.90 0.01 80);
+  --input: oklch(0.90 0.01 80);
+  --ring: oklch(0.38 0.12 18);
+
+  /* 圖表與側邊欄同步 */
+  --chart-1: oklch(0.38 0.12 18);
+  --chart-2: oklch(0.55 0.16 35);
+  --chart-3: oklch(0.88 0.01 80);
+  --chart-4: oklch(0.97 0.01 80);
+  --chart-5: oklch(0.28 0.02 50);
+  
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.28 0.02 50);
+  --sidebar-primary: oklch(0.38 0.12 18);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0.01 80);
+  --sidebar-accent-foreground: oklch(0.38 0.12 18);
+  --sidebar-border: oklch(0.90 0.01 80);
+  --sidebar-ring: oklch(0.38 0.12 18);
 }
 
 @layer base {
@@ -166,9 +173,12 @@
 
 /* Home hero: warm service background with a restrained green/orange product focus. */
 .hero-support {
-  background:
-    radial-gradient(circle at 82% 28%, oklch(0.93 0.032 160 / 72%) 0 15%, transparent 36%),
-    linear-gradient(135deg, oklch(0.985 0.01 95), oklch(0.96 0.018 120));
+  background: linear-gradient(to left, #F2E1E1 0%, #F8F7F2 100%) !important;
+}
+
+/* 圖二：產品選擇區塊，套用「低飽和極淡奶油黃到米白」的漸層，讓視覺過渡更自然 */
+.choose-product-section {
+  background: linear-gradient(180deg, #FDFBF0 0%, #FFFFFF 100%) !important;
 }
 
 .home-hero-grid {
@@ -283,9 +293,7 @@
 }
 
 .choose-product-section {
-  background:
-    linear-gradient(135deg, oklch(0.945 0.014 150 / 82%), oklch(0.985 0.01 95)),
-    var(--color-background);
+  background: #FCFAF5 !important; 
 }
 
 .support-assistant-panel {
