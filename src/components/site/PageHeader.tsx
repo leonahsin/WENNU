@@ -93,17 +93,9 @@ export function PageHeader({
               )}
             </h1>
             
-            {/* 描述：支援手機版短描述、電腦版長描述切換 */}
-            {(description || mobileDescription) ? (
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {mobileDescription ? (
-                  <>
-                    <span className="sm:hidden">{mobileDescription}</span>
-                    <span className="hidden sm:inline">{description}</span>
-                  </>
-                ) : (
-                  description
-                )}
+            {description ? (
+              <p className="hidden sm:block mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {description}
               </p>
             ) : null}
           </div>
