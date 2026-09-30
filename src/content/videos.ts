@@ -162,7 +162,7 @@ const JP_ENTRIES: {
     title: "犬の測定",
     description: "犬モードに切り替え、正しい持ち方と測定位置をご案内します。",
     thumbnailUrl: "/video3.png",
-    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    videoUrl: "",
     locale: "jp"
   },
   {
@@ -171,7 +171,7 @@ const JP_ENTRIES: {
     title: "猫の測定",
     description: "猫モードに切り替え、コーム機能とやさしい測定位置をご案内します。",
     thumbnailUrl: "/video4.png",
-    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    videoUrl: "",
     locale: "jp"
   },
   {
@@ -180,7 +180,7 @@ const JP_ENTRIES: {
     title: "続けて測る理由",
     description: "1回だけで判断せず、複数回測定して安定した数値を確認します。",
     thumbnailUrl: "/video5.png",
-    videoUrl: "https://www.youtube.com/embed/FK1stNDefus?si=4u0HQ2CVPsf1Jjib",
+    videoUrl: "",
     locale: "jp"
   },
   {
