@@ -1,4 +1,3 @@
-import { productImageForMarket } from "@/content/productImageUnits";
 import { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -67,51 +66,39 @@ const COPY = {
   },
 } as const;
 
-const STEP_IMAGES: Record<HowToSectionId, { src: string; alt: { us: string; jp: string } }> = {
+
+const STEP_VIDEOS: Record<HowToSectionId, { youtubeUrl: string; title: string }> = {
   "choose-your-mode": {
-    src: "/images/pci01-step-mode-v1.png",
-    alt: {
-      us: "A pet owner selects the PCI01 mode with a calm dog and cat nearby.",
-      jp: "落ち着いた犬と猫のそばで、飼い主が PCI01 のモードを選んでいます。",
-    },
+    youtubeUrl: "https://www.youtube.com/embed/-4__tm0v3AQ?si=8zy8_j5reBIon-xn",
+    title: "Choose your mode",
   },
   "position-the-thermometer": {
-    src: "/images/pci01-step-position-v1.png",
-    alt: {
-      us: "A pet owner steadies a calm dog and positions PCI01 near its head.",
-      jp: "飼い主が犬をやさしく支え、PCI01 を額の近くに安定させています。",
-    },
+    youtubeUrl: "https://www.youtube.com/embed/XncpSkTeo4k?si=3oivsjEt67ziI-Ua",
+    title: "Position the thermometer",
   },
   "keep-scanning": {
-    src: "/images/pci01-step-scan-v1.png",
-    alt: {
-      us: "A pet owner continues a gentle scan near a calm dog's head.",
-      jp: "飼い主が落ち着いた犬の額から耳の近くをやさしく続けて測っています。",
-    },
+    youtubeUrl: "https://www.youtube.com/embed/i2ma7xQ43EA?si=RGxTH_hyOFYaggle",
+    title: "Keep scanning",
   },
   "learn-their-normal": {
-    src: "/images/pci01-step-baseline-v1.png",
-    alt: {
-      us: "A pet owner records PCI01 readings while a dog and cat rest together.",
-      jp: "犬と猫が一緒にくつろぐそばで、飼い主が PCI01 の測定結果を記録しています。",
-    },
+    youtubeUrl: "https://www.youtube.com/embed/Q6CzdtXiFME?si=cBww1oOnxAj_T5fl", 
+    title: "Learn their normal",
   },
 };
 
-function StepVisual({ id, market }: { id: HowToSectionId; market: MarketId }) {
-  const image = STEP_IMAGES[id];
+function StepVisual({ id }: { id: HowToSectionId }) {
+  const video = STEP_VIDEOS[id];
 
   return (
-    <figure className="overflow-hidden rounded-[1.5rem] border border-warning/20 bg-[#fbf6e8] shadow-sm">
-      <img
-        src={productImageForMarket(image.src, market)}
-        alt={image.alt[market]}
-        width={764}
-        height={508}
-        loading="eager"
-        className="aspect-[3/2] h-full w-full object-cover"
+    <div className="overflow-hidden rounded-[1.5rem] border border-warning/20 bg-[#fbf6e8] shadow-sm aspect-[3/2] w-full">
+      <iframe
+        src={video.youtubeUrl}
+        title={video.title}
+        className="h-full w-full border-0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
       />
-    </figure>
+    </div>
   );
 }
 
@@ -256,7 +243,7 @@ export function HowToUsePage({ market }: { market: MarketId }) {
                   ) : null}
                 </div>
                 <div className="order-1 lg:order-2">
-                  <StepVisual id={section.id} market={market} />
+                  <StepVisual id={section.id} />
                 </div>
               </div>
             </section>
