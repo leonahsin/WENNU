@@ -47,7 +47,8 @@ export function PrimaryCardLink({ to, title, description, emphasis, image }: Pri
           </p>
         </div>
 
-        <div className="mt-2 sm:mt-2">
+        {/* 💡 這裡修改了：加上 flex justify-end 讓箭頭自動靠右對齊 */}
+        <div className="mt-2 sm:mt-2 flex justify-end w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
