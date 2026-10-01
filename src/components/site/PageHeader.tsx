@@ -11,9 +11,9 @@ interface Crumb {
 interface PageHeaderProps {
   eyebrow?: string;
   title: string;
-  mobileTitle?: string; // 手機版專用短標題（可選）
+  mobileTitle?: string;
   description?: ReactNode;
-  mobileDescription?: ReactNode; // 手機版專用短描述（可選）
+  mobileDescription?: ReactNode;
   crumbs?: Crumb[];
   children?: ReactNode;
   media?: ReactNode;
@@ -43,6 +43,7 @@ export function PageHeader({
       />
       
       <div className="relative mx-auto w-full max-w-6xl px-4 py-9 sm:px-6 sm:py-14">
+        {/* 麵包屑導覽 */}
         {crumbs?.length ? (
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
@@ -65,67 +66,79 @@ export function PageHeader({
           </nav>
         ) : null}
         
+        {/* 核心排版：
+            - 手機版 (md 以下)：採用 flex-row，左邊文字、右邊圖片並排。
+            - 電腦版 (md 以上)：採用 grid 三欄網格。 */}
         <div
           className={
-            leadingMedia
-              ? "pci-support-hero-grid"
+            leadingMedia && media
+              ? "flex flex-row items-center justify-between gap-2 md:grid md:grid-cols-[1.4fr_auto_auto] md:gap-8"
               : media
-                ? "grid grid-cols-[minmax(0,1fr)_minmax(6rem,0.5fr)] items-center gap-x-3 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:gap-x-8"
-                : undefined
+                ? "grid grid-cols-[1fr_auto] items-center gap-x-3 md:grid-cols-[1.7fr_1fr] md:gap-x-8"
+                : "flex flex-col"
           }
         >
-          <div className={leadingMedia ? "pci-support-hero-copy min-w-0" : "min-w-0"}>
+          {/* 1. 文字區塊 */}
+          <div className="min-w-0 flex-1 md:col-start-1 md:row-start-1">
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
                 <Sparkles aria-hidden className="size-4" /> {eyebrow}
               </p>
             ) : null}
             
-            {/* 標題：支援手機版短標題、電腦版長標題切換 */}
             <h1 className="mt-3 text-4xl font-bold tracking-[-0.03em] text-foreground sm:text-5xl">
               {mobileTitle ? (
                 <>
-                  <span className="sm:hidden">{mobileTitle}</span>
-                  <span className="hidden sm:inline">{title}</span>
+                  <span className="md:hidden">{mobileTitle}</span>
+                  <span className="hidden md:inline">{title}</span>
                 </>
               ) : (
                 title
               )}
             </h1>
             
-            {/* 描述：支援手機版短描述、電腦版長描述切換 */}
+            {/* 說明文字：強制在手機版隱藏 (hidden md:block)，只留標題讓畫面乾淨 */}
             {(description || mobileDescription) ? (
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {mobileDescription ? (
-                  <>
-                    <span className="sm:hidden">{mobileDescription}</span>
-                    <span className="hidden sm:inline">{description}</span>
-                  </>
-                ) : (
-                  description
-                )}
+              <p className="hidden md:block mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {description}
               </p>
             ) : null}
           </div>
           
-          {leadingMedia ? <div className="pci-support-hero-product hidden sm:block">{leadingMedia}</div> : null}
-          {media ? (
-            <div
-              className={
-                leadingMedia
-                  ? "pci-support-hero-pets"
-                  : "col-start-2 row-start-1 min-w-0 self-center lg:row-span-2"
-              }
-            >
+          {/* 2. 圖片區塊 */}
+          {leadingMedia && media ? (
+            <>
+              {/* 【手機版專屬圖片區塊】強制靠右並排，並鎖定比例不讓圖片消失 */}
+              <div className="flex shrink-0 items-end justify-end gap-2 pl-2 md:hidden">
+                <div className="w-[6.5rem] shrink-0 sm:w-32">{media}</div>
+                <div className="w-[2.75rem] shrink-0 sm:w-14">{leadingMedia}</div>
+              </div>
+
+              {/* 【電腦版專屬圖片區塊】依照網格各就各位，完美還原 */}
+              <div className="hidden md:flex md:col-start-2 md:row-start-1 items-center justify-center">
+                {media}
+              </div>
+              <div className="hidden md:flex md:col-start-3 md:row-start-1 items-center justify-center">
+                {leadingMedia}
+              </div>
+            </>
+          ) : media ? (
+            <div className="col-start-2 row-start-1 min-w-0 self-center md:row-span-2">
               {media}
             </div>
+          ) : leadingMedia ? (
+            <div className="hidden md:block md:col-start-3 md:row-start-1">
+              {leadingMedia}
+            </div>
           ) : null}
+          
+          {/* 3. 搜尋列等子元件區塊 */}
           {children ? (
             <div
               className={
-                leadingMedia
-                  ? "pci-support-hero-search min-w-0"
-                  : `mt-6 min-w-0 ${media ? "col-span-2 lg:col-span-1 lg:col-start-1 lg:row-start-2" : ""}`
+                leadingMedia && media
+                  ? "col-span-full mt-4 w-full min-w-0 md:col-span-3 md:col-start-1 md:row-start-2"
+                  : "col-span-full mt-6 w-full min-w-0 md:col-span-1 md:col-start-1 md:row-start-2"
               }
             >
               {children}

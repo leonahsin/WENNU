@@ -69,19 +69,19 @@ const COPY = {
 
 const STEP_VIDEOS: Record<HowToSectionId, { youtubeUrl: string; title: string }> = {
   "choose-your-mode": {
-    youtubeUrl: "https://www.youtube.com/embed/-4__tm0v3AQ?si=8zy8_j5reBIon-xn",
+    youtubeUrl: "https://www.youtube.com/embed/z4JlgEeBjog?si=DIG4TeSf_jbigEAk",
     title: "Choose your mode",
   },
   "position-the-thermometer": {
-    youtubeUrl: "https://www.youtube.com/embed/XncpSkTeo4k?si=3oivsjEt67ziI-Ua",
+    youtubeUrl: "https://www.youtube.com/embed/EyVwiHkPAzw?si=KqichzksSoQ3y7Lt",
     title: "Position the thermometer",
   },
   "keep-scanning": {
-    youtubeUrl: "https://www.youtube.com/embed/i2ma7xQ43EA?si=RGxTH_hyOFYaggle",
+    youtubeUrl: "https://www.youtube.com/embed/pFdZQYIOZZY?si=i_hH34SlmbThjSe2",
     title: "Keep scanning",
   },
   "learn-their-normal": {
-    youtubeUrl: "https://www.youtube.com/embed/Q6CzdtXiFME?si=cBww1oOnxAj_T5fl", 
+    youtubeUrl: "https://www.youtube.com/embed/11MTTe7o0Hw?si=NHWrz3XxoVcCanFb", 
     title: "Learn their normal",
   },
 };
