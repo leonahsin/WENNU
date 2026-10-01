@@ -55,7 +55,7 @@ export const PCI01_PRIMARY_JP: PrimaryDestination[] = [
   {
     id: "getting-started",
     title: "はじめてお使いになる方へ",
-    description: "PCI01 の初期設定から最初の測定まで、順番にご案内します。",
+    description: "簡単なセットアップと、最初の測定。",
     to: "/jp/getting-started",
     emphasis: "primary",
     image: "/images/gettingstarted.png",
@@ -63,7 +63,7 @@ export const PCI01_PRIMARY_JP: PrimaryDestination[] = [
   {
     id: "videos",
     title: "動画ガイド",
-    description: "PCI01 の使い方とお手入れ方法を、動画でわかりやすくご案内します。",
+    description: "ステップごとの動画チュートリアル。",
     to: "/jp/videos",
     emphasis: "secondary",
     image: "/images/videoguides.png",
@@ -71,7 +71,7 @@ export const PCI01_PRIMARY_JP: PrimaryDestination[] = [
   {
     id: "faq",
     title: "よくあるご質問",
-    description: "よくあるご質問とトラブル解決をひとつにまとめました。",
+    description: "よくある質問への回答。",
     to: "/jp/faq",
     emphasis: "secondary",
     image: "/images/faq.png",
@@ -79,7 +79,7 @@ export const PCI01_PRIMARY_JP: PrimaryDestination[] = [
   {
     id: "support-request",
     title: "サポート依頼",
-    description: "解決しない場合は、状況をサポートチームへお送りください。",
+    description: "サポートチームへのお問い合わせ。",
     to: "/jp/support-request",
     emphasis: "secondary",
     image: "/images/supportrequest.png",
