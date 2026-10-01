@@ -65,7 +65,6 @@ export function PageHeader({
           </nav>
         ) : null}
         
-        {/* 主排版：強制劃分左右區塊 (手機版 1.1:1 確保文字空間, 電腦版 1.4:auto:auto) */}
         <div
           className={
             leadingMedia && media
@@ -75,7 +74,7 @@ export function PageHeader({
                 : undefined
           }
         >
-          {/* 1. 左側文字區塊：嚴格鎖定在第 1 欄，絕不與圖片重疊 */}
+          {/* 1. 左側文字區塊 */}
           <div className="col-start-1 min-w-0">
             {eyebrow ? (
               <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-warning">
@@ -94,7 +93,6 @@ export function PageHeader({
               )}
             </h1>
             
-            {/* 說明文字：手機版隱藏，電腦版顯示 */}
             {(description || mobileDescription) ? (
               <p className="hidden lg:block mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {description}
@@ -104,13 +102,14 @@ export function PageHeader({
           
           {/* 2. 右側圖片區塊 */}
           {leadingMedia && media ? (
+            /* 改用 items-end 讓貓狗與溫度計底部對齊，看起來像站在同一個平面 */
             <div className="col-start-2 flex w-full min-w-0 items-end justify-end gap-1 lg:contents">
-              {/* 貓狗圖：手機版佔右側格子的 60%，防溢出 */}
-              <div className="w-[60%] min-w-0 shrink-0 lg:w-auto lg:col-start-2 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
+              {/* 貓狗圖：分配 75% 寬度，讓寬扁的貓狗可以長大 */}
+              <div className="w-[75%] min-w-0 shrink-0 lg:w-auto lg:col-start-2 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
                 {media}
               </div>
-              {/* 溫度計圖：手機版佔右側格子的 40%，防溢出 */}
-              <div className="w-[40%] min-w-0 shrink-0 lg:w-auto lg:col-start-3 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
+              {/* 溫度計圖：只分配 25% 寬度，讓瘦長的溫度計不會太巨大 */}
+              <div className="w-[25%] min-w-0 shrink-0 lg:w-auto lg:col-start-3 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
                 {leadingMedia}
               </div>
             </div>
@@ -124,7 +123,7 @@ export function PageHeader({
             </div>
           ) : null}
           
-          {/* 3. 搜尋列等子元件：自動排到下一行 */}
+          {/* 3. 搜尋列等子元件 */}
           {children ? (
             <div
               className={
