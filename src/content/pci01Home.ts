@@ -82,7 +82,7 @@ export const PCI01_PRIMARY_JP: PrimaryDestination[] = [
     description: "解決しない場合は、状況をサポートチームへお送りください。",
     to: "/jp/support-request",
     emphasis: "secondary",
-    image: "/images/supprtrequest.png",
+    image: "/images/supportrequest.png",
   },
 ];
 
