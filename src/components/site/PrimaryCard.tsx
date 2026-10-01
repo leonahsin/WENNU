@@ -23,7 +23,7 @@ export function PrimaryCardLink({ to, title, description, emphasis, image }: Pri
       className="group flex flex-row sm:flex-col items-center sm:items-stretch justify-between gap-4 sm:gap-4 rounded-2xl bg-card p-4 sm:p-6 ring-1 ring-border/60 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
     >
       {image ? (
-        <div className="relative w-28 sm:w-full shrink-0 aspect-[4/3] overflow-hidden rounded-xl bg-secondary/20">
+        <div className="relative w-28 sm:w-full shrink-0 aspect-square overflow-hidden rounded-xl bg-secondary/20">
           <img
             src={image}
             alt={title}

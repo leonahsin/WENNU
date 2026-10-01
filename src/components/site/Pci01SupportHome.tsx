@@ -2,7 +2,7 @@ import { productImageForMarket } from "@/content/productImageUnits";
 import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/site/PageHeader";
-import { PrimaryCardLink } from "@/components/site/PrimaryCard";
+import { PrimaryCardLink } from "@/components/site/PrimaryCard.tsx";
 import { SupportSearch } from "@/components/site/SupportSearch";
 import { HappyPetsReview } from "@/components/site/CommerceTrust";
 import { primaryDestinations } from "@/content/pci01Home";
