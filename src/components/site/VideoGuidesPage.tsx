@@ -37,7 +37,7 @@ const COPY = {
   jp: {
     home: "PCI01 サポート",
     homeTo: "/jp/product/pci01",
-    crumb: "動画で見る",
+    crumb: "動画ガイド",
     title: "PCI01 動画ガイド",
     description: "初期設定・測定・お手入れ・困ったときの手順を短い動画でご案内します。",
     all: "すべてのガイド",

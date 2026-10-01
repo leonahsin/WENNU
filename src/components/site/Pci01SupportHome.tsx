@@ -168,16 +168,17 @@ export function Pci01SupportHome({ market, entrySource, initialQuery }: Props) {
         className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16"
       >
         <section aria-label={copy.title} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {primaryDestinations(market).map((item) => (
-            <PrimaryCardLink
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              to={item.to}
-              emphasis={item.emphasis}
-              {...(jp ? { lang: "ja" } : {})}
-            />
-          ))}
+{primaryDestinations(market).map((item) => (
+  <PrimaryCardLink
+    key={item.id}
+    title={item.title}
+    description={item.description}
+    to={item.to}
+    emphasis={item.emphasis}
+    image={item.image} /* 💡 關鍵：把圖片路徑交給卡片 */
+    {...(jp ? { lang: "ja" } : {})}
+  />
+))}
         </section>
       </main>
       <HappyPetsReview market={market} showAmazon={false} />
