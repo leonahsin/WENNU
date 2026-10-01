@@ -102,14 +102,13 @@ export function PageHeader({
           
           {/* 2. 右側圖片區塊 */}
           {leadingMedia && media ? (
-            /* 改用 items-end 讓貓狗與溫度計底部對齊，看起來像站在同一個平面 */
             <div className="col-start-2 flex w-full min-w-0 items-end justify-end gap-1 lg:contents">
-              {/* 貓狗圖：分配 75% 寬度，讓寬扁的貓狗可以長大 */}
-              <div className="w-[75%] min-w-0 shrink-0 lg:w-auto lg:col-start-2 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
+              {/* 貓狗圖：手機版佔 75%，電腦版(lg)加上 max-w 限制，防止圖片無止盡放大 */}
+              <div className="w-[75%] min-w-0 shrink-0 lg:w-auto lg:max-w-[260px] xl:max-w-[320px] lg:col-start-2 lg:row-span-2 lg:self-center lg:justify-self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
                 {media}
               </div>
-              {/* 溫度計圖：只分配 25% 寬度，讓瘦長的溫度計不會太巨大 */}
-              <div className="w-[25%] min-w-0 shrink-0 lg:w-auto lg:col-start-3 lg:row-span-2 lg:self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
+              {/* 溫度計圖：手機版佔 25%，電腦版(lg)加上 max-w 限制，確保比例細長 */}
+              <div className="w-[25%] min-w-0 shrink-0 lg:w-auto lg:max-w-[90px] xl:max-w-[110px] lg:col-start-3 lg:row-span-2 lg:self-center lg:justify-self-center [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain">
                 {leadingMedia}
               </div>
             </div>
