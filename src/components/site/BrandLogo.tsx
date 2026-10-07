@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export function BrandLogo({ className }: { className?: string }) {
   return (
     <img
-      src="/images/ennu-logo.jpg"
+      src="/images/logo.png"
       alt="WENNU PetiMeti Series — Know Them. Care Better."
       className={cn("h-9 w-auto object-contain", className)}
       decoding="async"
